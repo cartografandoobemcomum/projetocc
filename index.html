@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cartografando o Bem Comum - Iguatu-CE</title>
+
+    <!-- Leaflet CSS: biblioteca para mapas interativos -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    />
+
+    <!-- Font Awesome: ícones prontos (mapa, lápis, câmera, etc.) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Nosso CSS (separado) -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ====== HEADER (cabeçalho) ====== -->
+    <!-- Comentário simples: aqui fica o título do projeto e o subtítulo -->
+   <header>
+  <div class="container header-row">
+    <div class="capa"></div>
+
+    <!-- Bloco central com título e subtítulo -->
+    <div class="title-block">
+      <h1 class="header-title">Cartografando o Bem Comum</h1>
+      <p class="subtitle">
+        Mapeamento das Ações Socioambientais em Iguatu-CE
+      </p>
+    </div>
+
+    <div class="logo"></div>
+  </div>
+</header>
+
+
+    <!-- ====== CONTEÚDO PRINCIPAL ====== -->
+    <div class="container">
+      <!-- Controles de visualização e edição -->
+      <!-- Esses botões acionam funções no arquivo script.js -->
+      <div class="controls">
+        <div class="view-controls">
+          <button class="btn btn-primary" id="view-map-btn">
+            <i class="fas fa-map"></i> Visualizar Mapa
+          </button>
+          <button class="btn btn-secondary" id="view-list-btn">
+            <i class="fas fa-list"></i> Visualizar Lista
+          </button>
+        </div>
+        <div class="edit-controls">
+          <button class="btn btn-primary" id="add-action-btn">
+            <i class="fas fa-plus"></i> Adicionar Ação
+          </button>
+          <button class="btn btn-secondary" id="edit-mode-btn">
+            <i class="fas fa-edit"></i> Modo Edição
+          </button>
+          <button class="btn btn-secondary" id="save-data-btn">
+            <i class="fas fa-save"></i> Salvar Dados
+          </button>
+        </div>
+      </div>
+
+      <!-- Área de mapa + painel informativo -->
+      <div class="content">
+        <!-- Contêiner do mapa Leaflet -->
+        <div class="map-container">
+          <div id="map"></div>
+          <!-- O mapa será renderizado aqui -->
+        </div>
+
+        <!-- Painel com informações do projeto -->
+        <div class="info-panel">
+          <h2>Sobre o Projeto</h2>
+
+          <div class="info-item">
+            <h3><i class="fas fa-bullseye"></i> Objetivo</h3>
+            <p>
+              Mapear, registrar e divulgar ações socioambientais em Iguatu-CE,
+              promovendo a consciência ecológica e o protagonismo juvenil.
+            </p>
+          </div>
+
+          <div class="info-item">
+            <h3><i class="fas fa-map-marked-alt"></i> Abrangência</h3>
+            <p>
+              Município de Iguatu-CE, com foco em iniciativas de educação
+              ambiental, reciclagem, preservação e agroecologia.
+            </p>
+          </div>
+
+          <div class="info-item">
+            <h3><i class="fas fa-users"></i> Público</h3>
+            <p>
+              Comunidade escolar, organizações não-governamentais, associações
+              de moradores e instituições públicas.
+            </p>
+          </div>
+
+          <div class="info-item">
+            <h3><i class="fas fa-calendar-alt"></i> Duração</h3>
+            <p>4 meses de atividades de mapeamento e divulgação.</p>
+          </div>
+
+          <div class="info-item">
+            <h3><i class="fas fa-tools"></i> Metodologia</h3>
+            <p>
+              Pesquisa participativa com visitas de campo, entrevistas e
+              registro fotográfico.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====== AÇÕES (lista + filtros) ====== -->
+      <div class="actions">
+        <h2>Ações Socioambientais Mapeadas</h2>
+
+        <!-- Botões de filtro por categoria -->
+        <div class="filters">
+          <button class="filter-btn active" data-filter="all">Todas</button>
+          <button class="filter-btn" data-filter="educacao">
+            Educação Ambiental
+          </button>
+          <button class="filter-btn" data-filter="reciclagem">
+            Reciclagem
+          </button>
+          <button class="filter-btn" data-filter="reflorestamento">
+            Reflorestamento
+          </button>
+          <button class="filter-btn" data-filter="horta">
+            Hortas Comunitárias
+          </button>
+          <button class="filter-btn" data-filter="agroecologia">
+            Agroecologia
+          </button>
+           <button class="filter-btn" data-filter="empreendedorismo">
+           Empreendedorismo e Meio Ambiente
+          </button>
+          <button class="filter-btn" data-filter="cultura">
+           Cultura e Meio Ambiente
+          </button>
+        </div>
+
+        <!-- Onde os cards de ações serão adicionados pelo JavaScript -->
+        <div class="action-list" id="action-list">
+          <!-- conteúdo gerado dinamicamente em script.js -->
+        </div>
+      </div>
+
+      <!-- Informações do projeto / equipe -->
+      <div class="project-info">
+  <h2>Equipe do Projeto</h2>
+  <p>
+    Este projeto foi desenvolvido por estudantes e educadores do Ensino
+    Médio da EEMTI Filgueiras Lima de Iguatu-CE, com o objetivo de mapear
+    e divulgar ações socioambientais no município.
+  </p>
+
+  <div class="team">
+    <div class="team-member">
+      <!-- Foto do integrante -->
+      <img src="imagens/lilithi.jpg" alt="Foto de Lilithi Vieira do Carmo" class="team-photo">
+      <h4>Lilithi Vieira do Carmo</h4>
+      <p class="team-role">Estudante Pesquisadora</p>
+    </div>
+
+    <div class="team-member">
+      <img src="imagens/rafael.jpg" alt="Foto de Rafael Alencar Firmino" class="team-photo">
+      <h4>Rafael Alencar Firmino</h4>
+      <p class="team-role">Estudante Pesquisador</p>
+    </div>
+
+    <div class="team-member">
+      <img src="imagens/nacizo.jpg" alt="Foto de Prof. Me. Nacizo Cândido Neto" class="team-photo">
+      <h4>Prof. Me. Nacizo Cândido Neto</h4>
+      <p class="team-role">Orientador</p>
+    </div>
+
+     <div class="team-member">
+      <img src="imagens/guilherme.jpg" alt="Foto de Prof. Guilherme Moreira" class="team-photo">
+      <h4>Prof. Guilherme Moreira</h4>
+      <p class="team-role">Coorientador</p>
+    </div>
+
+
+
+  </div>
+</div>
+
+    <!-- Rodapé -->
+    <footer>
+      <div class="container">
+        <p>
+          Projeto "Cartografando o Bem Comum: Mapeamento das Ações
+          Socioambientais em Iguatu-CE"
+        </p>
+        <p>
+          CEARÁ CIENTÍFICO 2025 - Educação Ambiental Crítica e Protagonismo
+          Juvenil
+        </p>
+      </div>
+    </footer>
+
+    <!-- ====== MODAL DE EDIÇÃO (formulário) ====== -->
+    <!-- Comentário: modal escondido por padrão; aparece quando chamamos openModal() -->
+    <div id="edit-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="modal-title">Adicionar Ação</h2>
+          <span class="close">&times;</span>
+          <!-- botão X para fechar -->
+        </div>
+        <form id="action-form">
+          <input type="hidden" id="action-id" />
+
+          <div class="form-group">
+            <label for="action-title">Título da Ação</label>
+            <input type="text" id="action-title" required />
+          </div>
+
+          <div class="form-group">
+            <label for="action-type">Tipo de Ação</label>
+            <select id="action-type" required>
+              <option value="educacao">Educação Ambiental</option>
+              <option value="reciclagem">Reciclagem</option>
+              <option value="reflorestamento">Reflorestamento</option>
+              <option value="horta">Horta Comunitária</option>
+              <option value="agroecologia">Agroecologia</option>
+              <option value="cooperativa">Cooperativa</option>
+              <option value="empreendedorismo">Empreendedorismo e Meio Ambiente</option>
+              <option value="cultura">Cultura e Meio Ambiente</option>
+              
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="action-description">Descrição</label>
+            <textarea id="action-description" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="action-location">Localização (Bairro)</label>
+            <input type="text" id="action-location" required />
+          </div>
+
+          <div class="form-group">
+            <label for="action-lat">Latitude</label>
+            <input type="number" step="any" id="action-lat" required />
+          </div>
+          <div class="form-group">
+            <label for="action-lng">Longitude</label>
+            <input type="number" step="any" id="action-lng" required />
+          </div>
+
+          <div class="form-group">
+            <label>Galeria de Imagens</label>
+            <!-- Miniaturas adicionadas dinamicamente -->
+            <div class="gallery-container" id="gallery-container"></div>
+
+            <!-- Botão visual para adicionar imagens -->
+            <div class="gallery-add-btn" id="add-image-btn">
+              <i class="fas fa-plus"></i>
+            </div>
+
+            <!-- Input real (escondido) para selecionar imagens -->
+            <input
+              type="file"
+              id="gallery-image-input"
+              multiple
+              accept="image/*"
+              style="display: none"
+            />
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="btn btn-secondary" id="cancel-btn">
+              Cancelar
+            </button>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- ====== MODAL DA GALERIA (visualização em tela cheia) ====== -->
+    <div id="gallery-modal" class="gallery-modal">
+      <span class="gallery-close" id="gallery-close">&times;</span>
+      <div class="gallery-modal-content">
+        <div class="gallery-slide active">
+          <img
+            class="gallery-main-image"
+            id="gallery-main-image"
+            src=""
+            alt=""
+          />
+          <div class="gallery-caption" id="gallery-caption"></div>
+        </div>
+
+        <div class="gallery-nav">
+          <button class="gallery-nav-btn" id="gallery-prev">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="gallery-nav-btn" id="gallery-next">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <div class="image-count" id="image-count">1/5</div>
+
+        <div class="gallery-thumbnails" id="gallery-thumbnails">
+          <!-- miniaturas dinâmicas -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Leaflet JS (mapeamento) -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    <!-- Nosso JavaScript (separado) -->
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,759 @@
+/* =========================
+   RESET BÁSICO E TIPOGRAFIA
+   ========================= */
+/* Remove margens/paddings padrão e define box-sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* fonte usada no projeto */
+}
+
+/* Estilo do corpo da página: cor de fundo e texto legível */
+body {
+  background-image: url("imagens/fundo2.png");
+  background-color: #f8faf8;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Container central que limita a largura do conteúdo */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* =========================
+   HEADER (cabeçalho)
+   ========================= */
+/* Cabeçalho com gradiente verde e sombra */
+header {
+  opacity: 100%;
+  background-image: url("imagens/fundo.png");
+  background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+  color: #1b5e20;
+  padding: 30px 0;
+  text-align: center;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+/* Título principal */
+h1 {
+  opacity: 100%;
+  color: #1b5e20;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+/* Subtítulo abaixo do título */
+.subtitle {
+  color: #1b5e20;
+  font-size: 1.2rem;
+  opacity: 0.9;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ====== Header em 3 colunas ====== */
+.header-row {
+  display: flex; /* coloca capa, bloco central e logo lado a lado */
+  justify-content: space-between; /* espaça elementos nas extremidades */
+  align-items: center; /* alinha verticalmente */
+  margin-bottom: 10px;
+}
+
+/* Bloco central (título + subtítulo) */
+.title-block {
+  flex: 1; /* ocupa o espaço central */
+  text-align: center; /* centraliza o conteúdo do bloco */
+}
+
+/* Título */
+.header-title {
+  opacity: 100%;
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 10px;
+}
+
+/* Subtítulo (fica centralizado porque herda do .title-block) */
+.subtitle {
+  font-size: 1.2rem;
+  opacity: 1;
+  color: white; /* garante contraste com o fundo verde */
+}
+
+/* Capa (esquerda) */
+.capa {
+  opacity: 1;
+  width: 300px; /* ajuste conforme necessidade */
+  height: 180px;
+  background-image: url("imagens/capa.png"); /* caminho real da imagem */
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+}
+
+/* Logo (direita) */
+.logo {
+  opacity: 100%;
+  width: 180px;
+  height: 180px;
+  background-image: url("imagens/logo.png"); /* caminho real da imagem */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* =========================
+   CONTROLES E BOTÕES
+   ========================= */
+.controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.edit-controls {
+  display: flex;
+  gap: 10px;
+}
+
+/* Botão base: paddings e bordas arredondadas */
+.btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Botões de ação (primário e secundário) */
+.btn-primary {
+  background: #2e7d32;
+  color: white;
+}
+.btn-primary:hover {
+  background: #1b5e20;
+}
+
+.btn-secondary {
+  background: #f5f5f5;
+  color: #333;
+  border: 1px solid #ddd;
+}
+.btn-secondary:hover {
+  background: #e0e0e0;
+}
+
+.btn-danger {
+  background: #f44336;
+  color: white;
+}
+.btn-danger:hover {
+  background: #d32f2f;
+}
+
+/* =========================
+   LAYOUT PRINCIPAL (MAPA + PAINEL)
+   ========================= */
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+/* Contêiner do mapa com sombras e borda arredondada */
+.map-container {
+  flex: 1;
+  min-width: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  height: 500px;
+}
+
+/* Área que o Leaflet vai preencher */
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+/* Painel de informações ao lado do mapa */
+.info-panel {
+  flex: 1;
+  min-width: 300px;
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos dentro do painel */
+.info-panel h2 {
+  color: #2e7d32;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+/* Itens de informação */
+.info-item {
+  margin-bottom: 15px;
+}
+.info-item h3 {
+  color: #2e7d32;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+}
+.info-item h3 i {
+  margin-right: 10px;
+}
+
+/* =========================
+   BLOCO DE AÇÕES (LISTA + FILTROS)
+   ========================= */
+.actions {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+.actions h2 {
+  color: #2e7d32;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Filtros: botões redondos */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.filter-btn {
+  background: #e8f5e9;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: #2e7d32;
+  font-weight: 500;
+}
+.filter-btn:hover,
+.filter-btn.active {
+  background: #2e7d32;
+  color: white;
+}
+
+/* Lista de ações em grade responsiva */
+.action-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Cada card de ação */
+.action-item {
+  background: linear-gradient(135deg, #f8f8f8 0%, #e8e8e8 100%);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+.action-item:hover {
+  transform: translateY(-5px);
+  background: linear-gradient(135deg, #e8f5e9 0%, #d8eadb 100%);
+}
+
+.action-item h3 {
+  color: #2e7d32;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+.action-item h3 i {
+  margin-right: 10px;
+}
+
+.action-type {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+  background: #2e7d32;
+  color: white;
+}
+
+.action-desc {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+.action-location {
+  font-size: 0.85rem;
+  color: #666;
+  display: flex;
+  align-items: center;
+}
+.action-location i {
+  margin-right: 5px;
+}
+
+/* Botões de edição que aparecem sobre o card */
+.edit-buttons {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 5px;
+}
+.edit-btn {
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  color: #2e7d32;
+}
+.edit-btn:hover {
+  background: #2e7d32;
+  color: white;
+}
+
+/* =========================
+   INFO DO PROJETO E EQUIPE
+   ========================= */
+.project-info {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+.project-info h2 {
+  color: #2e7d32;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Grid de membros da equipe */
+.team-photo {
+  width: 120px; /* tamanho da foto */
+  height: 120px;
+  object-fit: cover; /* corta a imagem para caber no quadrado */
+  border-radius: 50%; /* deixa a foto redonda */
+  margin-bottom: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.team {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+.team-member {
+  background: #e8f5e9;
+  border-radius: 8px;
+  padding: 15px;
+  width: 200px;
+  text-align: center;
+}
+.team-member h4 {
+  color: #2e7d32;
+  margin-bottom: 5px;
+}
+
+/* =========================
+   RODAPÉ
+   ========================= */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #2e7d32;
+  color: white;
+  border-radius: 10px 10px 0 0;
+  margin-top: 30px;
+}
+
+/* =========================
+   LEGENDA DO MAPA
+   ========================= */
+.legend {
+  padding: 10px;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+  line-height: 1.5;
+}
+.legend h4 {
+  margin: 0 0 10px;
+  text-align: center;
+  color: #2e7d32;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.legend-color {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+/* =========================
+   MODAL (edição) E GALERIA
+   ========================= */
+/* Modal escuro cobrindo a tela */
+.modal {
+  display: none; /* escondido por padrão */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+}
+.modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+.modal-header h2 {
+  color: #2e7d32;
+  margin: 0;
+}
+.close {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.close:hover {
+  color: #000;
+}
+
+/* Formulários dentro do modal */
+.form-group {
+  margin-bottom: 15px;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #555;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Imagens no formulário (miniaturas) */
+.action-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.image-preview {
+  width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+  border-radius: 5px;
+  margin-top: 10px;
+  border: 1px dashed #ccc;
+  padding: 5px;
+  display: none;
+}
+.popup-image {
+  width: 100%;
+  max-height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.no-image {
+  width: 100%;
+  height: 150px;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  color: #888;
+}
+
+/* Galeria de miniaturas no modal */
+.gallery-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.gallery-preview {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.3s;
+}
+.gallery-preview:hover {
+  border-color: #2e7d32;
+  transform: scale(1.05);
+}
+.gallery-preview.active {
+  border-color: #2e7d32;
+}
+
+/* Botão que abre seletor de imagens */
+.gallery-add-btn {
+  width: 80px;
+  height: 80px;
+  border: 2px dashed #ccc;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: #f9f9f9;
+}
+.gallery-add-btn:hover {
+  border-color: #2e7d32;
+  background-color: #e8f5e9;
+}
+
+/* Modal da galeria (visualização em tela cheia) */
+.gallery-modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  align-items: center;
+  justify-content: center;
+}
+.gallery-modal-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+}
+.gallery-slide {
+  display: none;
+  text-align: center;
+}
+.gallery-slide.active {
+  display: block;
+}
+.gallery-main-image {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 5px;
+}
+.gallery-caption {
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 1.2rem;
+}
+.gallery-nav {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  padding: 0 20px;
+}
+.gallery-nav-btn {
+  background-color: rgba(46, 125, 50, 0.8);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+.gallery-nav-btn:hover {
+  background-color: rgba(46, 125, 50, 1);
+  transform: scale(1.1);
+}
+.gallery-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.gallery-close:hover {
+  color: #2e7d32;
+}
+
+/* Miniaturas e contagem */
+.gallery-thumbnails {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+.gallery-thumb {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 5px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: all 0.3s;
+}
+.gallery-thumb:hover,
+.gallery-thumb.active {
+  opacity: 1;
+  border: 2px solid #2e7d32;
+}
+.image-count {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+/* Botão de remover miniatura */
+.remove-image-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #f44336;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+/* Container para preview de imagens (no formulário) */
+.image-preview-container {
+  position: relative;
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+/* =========================
+   RESPONSIVIDADE (tel./tablet)
+   ========================= */
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+  }
+  .map-container,
+  .info-panel {
+    width: 100%;
+  }
+  .action-list {
+    grid-template-columns: 1fr;
+  }
+  .controls {
+    flex-direction: column;
+  }
+  .edit-controls {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  .gallery-nav-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+  .gallery-thumb {
+    width: 40px;
+    height: 40px;
+  }
+}
