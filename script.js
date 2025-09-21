@@ -1,3 +1,4 @@
+let actionsData = [];
 let map,
   markers = []; // map = objeto do Leaflet, markers = lista de marcadores no mapa
 let editMode = false; // indica se estamos no modo edição
@@ -638,3 +639,4 @@ function init() {
 
 /* Quando a página terminar de carregar, iniciamos tudo */
 document.addEventListener("DOMContentLoaded", init);
+
