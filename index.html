@@ -5,29 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cartografando o Bem Comum - Iguatu-CE</title>
 
-    <!-- Leaflet CSS: biblioteca para mapas interativos -->
+    <!-- Leaflet CSS -->
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
     />
 
-    <!-- Font Awesome: ícones prontos (mapa, lápis, câmera, etc.) -->
+    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
 
-    <!-- Nosso CSS (separado) -->
+    <!-- Nosso CSS -->
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- ====== HEADER (cabeçalho) ====== -->
-    <!-- Comentário simples: aqui fica o título do projeto e o subtítulo -->
+    <!-- Header -->
    <header>
   <div class="container header-row">
-    <div class="capa"></div>
+    <div class="capa" aria-hidden="true"></div>
 
-    <!-- Bloco central com título e subtítulo -->
     <div class="title-block">
       <h1 class="header-title">Cartografando o Bem Comum</h1>
       <p class="subtitle">
@@ -35,15 +33,11 @@
       </p>
     </div>
 
-    <div class="logo"></div>
+    <div class="logo" aria-hidden="true"></div>
   </div>
 </header>
 
-
-    <!-- ====== CONTEÚDO PRINCIPAL ====== -->
     <div class="container">
-      <!-- Controles de visualização e edição -->
-      <!-- Esses botões acionam funções no arquivo script.js -->
       <div class="controls">
         <div class="view-controls">
           <button class="btn btn-primary" id="view-map-btn">
@@ -66,15 +60,11 @@
         </div>
       </div>
 
-      <!-- Área de mapa + painel informativo -->
       <div class="content">
-        <!-- Contêiner do mapa Leaflet -->
         <div class="map-container">
-          <div id="map"></div>
-          <!-- O mapa será renderizado aqui -->
+          <div id="map" role="application" aria-label="Mapa de ações"></div>
         </div>
 
-        <!-- Painel com informações do projeto -->
         <div class="info-panel">
           <h2>Sobre o Projeto</h2>
 
@@ -117,11 +107,9 @@
         </div>
       </div>
 
-      <!-- ====== AÇÕES (lista + filtros) ====== -->
       <div class="actions">
         <h2>Ações Socioambientais Mapeadas</h2>
 
-        <!-- Botões de filtro por categoria -->
         <div class="filters">
           <button class="filter-btn active" data-filter="all">Todas</button>
           <button class="filter-btn" data-filter="educacao">
@@ -139,7 +127,7 @@
           <button class="filter-btn" data-filter="agroecologia">
             Agroecologia
           </button>
-           <button class="filter-btn" data-filter="empreendedorismo">
+          <button class="filter-btn" data-filter="empreendedorismo">
            Empreendedorismo e Meio Ambiente
           </button>
           <button class="filter-btn" data-filter="cultura">
@@ -147,13 +135,11 @@
           </button>
         </div>
 
-        <!-- Onde os cards de ações serão adicionados pelo JavaScript -->
         <div class="action-list" id="action-list">
-          <!-- conteúdo gerado dinamicamente em script.js -->
+          <!-- conteúdo gerado dinamicamente -->
         </div>
       </div>
 
-      <!-- Informações do projeto / equipe -->
       <div class="project-info">
   <h2>Equipe do Projeto</h2>
   <p>
@@ -164,7 +150,6 @@
 
   <div class="team">
     <div class="team-member">
-      <!-- Foto do integrante -->
       <img src="imagens/lilithi.jpg" alt="Foto de Lilithi Vieira do Carmo" class="team-photo">
       <h4>Lilithi Vieira do Carmo</h4>
       <p class="team-role">Estudante Pesquisadora</p>
@@ -187,13 +172,9 @@
       <h4>Prof. Guilherme Moreira</h4>
       <p class="team-role">Coorientador</p>
     </div>
-
-
-
   </div>
 </div>
 
-    <!-- Rodapé -->
     <footer>
       <div class="container">
         <p>
@@ -207,14 +188,12 @@
       </div>
     </footer>
 
-    <!-- ====== MODAL DE EDIÇÃO (formulário) ====== -->
-    <!-- Comentário: modal escondido por padrão; aparece quando chamamos openModal() -->
+    <!-- Modal de edição -->
     <div id="edit-modal" class="modal">
       <div class="modal-content">
         <div class="modal-header">
           <h2 id="modal-title">Adicionar Ação</h2>
-          <span class="close">&times;</span>
-          <!-- botão X para fechar -->
+          <span class="close" role="button" aria-label="Fechar">&times;</span>
         </div>
         <form id="action-form">
           <input type="hidden" id="action-id" />
@@ -233,9 +212,9 @@
               <option value="horta">Horta Comunitária</option>
               <option value="agroecologia">Agroecologia</option>
               <option value="cooperativa">Cooperativa</option>
+              <!-- VALUE corrigido para "empreendedorismo" -->
               <option value="empreendedorismo">Empreendedorismo e Meio Ambiente</option>
               <option value="cultura">Cultura e Meio Ambiente</option>
-              
             </select>
           </div>
 
@@ -260,15 +239,12 @@
 
           <div class="form-group">
             <label>Galeria de Imagens</label>
-            <!-- Miniaturas adicionadas dinamicamente -->
             <div class="gallery-container" id="gallery-container"></div>
 
-            <!-- Botão visual para adicionar imagens -->
-            <div class="gallery-add-btn" id="add-image-btn">
+            <div class="gallery-add-btn" id="add-image-btn" role="button" aria-label="Adicionar imagens">
               <i class="fas fa-plus"></i>
             </div>
 
-            <!-- Input real (escondido) para selecionar imagens -->
             <input
               type="file"
               id="gallery-image-input"
@@ -288,9 +264,9 @@
       </div>
     </div>
 
-    <!-- ====== MODAL DA GALERIA (visualização em tela cheia) ====== -->
-    <div id="gallery-modal" class="gallery-modal">
-      <span class="gallery-close" id="gallery-close">&times;</span>
+    <!-- Galeria modal -->
+    <div id="gallery-modal" class="gallery-modal" aria-hidden="true">
+      <span class="gallery-close" id="gallery-close" role="button" aria-label="Fechar galeria">&times;</span>
       <div class="gallery-modal-content">
         <div class="gallery-slide active">
           <img
@@ -303,26 +279,68 @@
         </div>
 
         <div class="gallery-nav">
-          <button class="gallery-nav-btn" id="gallery-prev">
+          <button class="gallery-nav-btn" id="gallery-prev" aria-label="Imagem anterior">
             <i class="fas fa-chevron-left"></i>
           </button>
-          <button class="gallery-nav-btn" id="gallery-next">
+          <button class="gallery-nav-btn" id="gallery-next" aria-label="Próxima imagem">
             <i class="fas fa-chevron-right"></i>
           </button>
         </div>
 
         <div class="image-count" id="image-count">1/5</div>
 
-        <div class="gallery-thumbnails" id="gallery-thumbnails">
-          <!-- miniaturas dinâmicas -->
-        </div>
+        <div class="gallery-thumbnails" id="gallery-thumbnails"></div>
       </div>
     </div>
 
-    <!-- Leaflet JS (mapeamento) -->
+    <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 
-    <!-- Nosso JavaScript (separado) -->
+    <!-- Firebase (compat libs para facilitar port) -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-storage-compat.js"></script>
+
+    <script>
+      // ====== CONFIGURE AQUI ======
+      // Substitua abaixo pelas suas credenciais do Firebase (do console Firebase)
+      // Exemplo:
+      // const firebaseConfig = {
+      //   apiKey: "AIza....",
+      //   authDomain: "seu-projeto.firebaseapp.com",
+      //   projectId: "seu-projeto",
+      //   storageBucket: "seu-projeto.appspot.com",
+      //   messagingSenderId: "...",
+      //   appId: "1:...:web:..."
+      // };
+      const firebaseConfig = {
+        // TODO: coloque aqui suas credenciais
+      };
+
+      // Se quiser desativar o Firebase e usar apenas localStorage,
+      // deixe firebaseConfig vazio ({}). O script detecta e usa fallback.
+      let firebaseEnabled = false;
+      try {
+        if (firebaseConfig && Object.keys(firebaseConfig).length > 0) {
+          firebase.initializeApp(firebaseConfig);
+          firebaseEnabled = true;
+        }
+      } catch (err) {
+        console.warn("Firebase não inicializado:", err);
+        firebaseEnabled = false;
+      }
+
+      // Expondo a flag para o script principal
+      window._FIREBASE_ENABLED = firebaseEnabled;
+      if (firebaseEnabled) {
+        window._FIRESTORE = firebase.firestore();
+        window._STORAGE = firebase.storage();
+      }
+    </script>
+
+    <!-- Nosso JS (modificado) -->
     <script src="script.js"></script>
   </body>
 </html>
+
+
