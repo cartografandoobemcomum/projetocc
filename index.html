@@ -22,20 +22,20 @@
   </head>
   <body>
     <!-- Header -->
-   <header>
-  <div class="container header-row">
-    <div class="capa" aria-hidden="true"></div>
+    <header>
+      <div class="container header-row">
+        <div class="capa" aria-hidden="true"></div>
 
-    <div class="title-block">
-      <h1 class="header-title">Cartografando o Bem Comum</h1>
-      <p class="subtitle">
-        Mapeamento das Ações Socioambientais em Iguatu-CE
-      </p>
-    </div>
+        <div class="title-block">
+          <h1 class="header-title">Cartografando o Bem Comum</h1>
+          <p class="subtitle">
+            Mapeamento das Ações Socioambientais em Iguatu-CE
+          </p>
+        </div>
 
-    <div class="logo" aria-hidden="true"></div>
-  </div>
-</header>
+        <div class="logo" aria-hidden="true"></div>
+      </div>
+    </header>
 
     <div class="container">
       <div class="controls">
@@ -64,116 +64,130 @@
         <div class="map-container">
           <div id="map" role="application" aria-label="Mapa de ações"></div>
         </div>
+      </div>
+      <div class="info-panel">
+        <h2>Sobre o Projeto</h2>
 
-        <div class="info-panel">
-          <h2>Sobre o Projeto</h2>
+        <div class="info-item">
+          <h3><i class="fas fa-bullseye"></i> Objetivo</h3>
+          <p>
+            Mapear, registrar e divulgar ações socioambientais em Iguatu-CE,
+            promovendo a consciência ecológica e o protagonismo juvenil.
+          </p>
+        </div>
 
-          <div class="info-item">
-            <h3><i class="fas fa-bullseye"></i> Objetivo</h3>
-            <p>
-              Mapear, registrar e divulgar ações socioambientais em Iguatu-CE,
-              promovendo a consciência ecológica e o protagonismo juvenil.
-            </p>
-          </div>
+        <div class="info-item">
+          <h3><i class="fas fa-map-marked-alt"></i> Abrangência</h3>
+          <p>
+            Município de Iguatu-CE, com foco em iniciativas de educação
+            ambiental, reciclagem, preservação e agroecologia.
+          </p>
+        </div>
 
-          <div class="info-item">
-            <h3><i class="fas fa-map-marked-alt"></i> Abrangência</h3>
-            <p>
-              Município de Iguatu-CE, com foco em iniciativas de educação
-              ambiental, reciclagem, preservação e agroecologia.
-            </p>
-          </div>
+        <div class="info-item">
+          <h3><i class="fas fa-users"></i> Público</h3>
+          <p>
+            Comunidade escolar, organizações não-governamentais, associações de
+            moradores e instituições públicas.
+          </p>
+        </div>
 
-          <div class="info-item">
-            <h3><i class="fas fa-users"></i> Público</h3>
-            <p>
-              Comunidade escolar, organizações não-governamentais, associações
-              de moradores e instituições públicas.
-            </p>
-          </div>
+        <div class="info-item">
+          <h3><i class="fas fa-calendar-alt"></i> Duração</h3>
+          <p>4 meses de atividades de mapeamento e divulgação.</p>
+        </div>
 
-          <div class="info-item">
-            <h3><i class="fas fa-calendar-alt"></i> Duração</h3>
-            <p>4 meses de atividades de mapeamento e divulgação.</p>
-          </div>
-
-          <div class="info-item">
-            <h3><i class="fas fa-tools"></i> Metodologia</h3>
-            <p>
-              Pesquisa participativa com visitas de campo, entrevistas e
-              registro fotográfico.
-            </p>
-          </div>
+        <div class="info-item">
+          <h3><i class="fas fa-tools"></i> Metodologia</h3>
+          <p>
+            Pesquisa participativa com visitas de campo, entrevistas e registro
+            fotográfico.
+          </p>
         </div>
       </div>
+    </div>
 
-      <div class="actions">
-        <h2>Ações Socioambientais Mapeadas</h2>
+    <div class="actions">
+      <h2>Ações Socioambientais Mapeadas</h2>
 
-        <div class="filters">
-          <button class="filter-btn active" data-filter="all">Todas</button>
-          <button class="filter-btn" data-filter="educacao">
-            Educação Ambiental
-          </button>
-          <button class="filter-btn" data-filter="reciclagem">
-            Reciclagem
-          </button>
-          <button class="filter-btn" data-filter="reflorestamento">
-            Reflorestamento
-          </button>
-          <button class="filter-btn" data-filter="horta">
-            Hortas Comunitárias
-          </button>
-          <button class="filter-btn" data-filter="agroecologia">
-            Agroecologia
-          </button>
-          <button class="filter-btn" data-filter="empreendedorismo">
-           Empreendedorismo e Meio Ambiente
-          </button>
-          <button class="filter-btn" data-filter="cultura">
-           Cultura e Meio Ambiente
-          </button>
-        </div>
-
-        <div class="action-list" id="action-list">
-          <!-- conteúdo gerado dinamicamente -->
-        </div>
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">Todas</button>
+        <button class="filter-btn" data-filter="educacao">
+          Educação Ambiental
+        </button>
+        <button class="filter-btn" data-filter="reciclagem">Reciclagem</button>
+        <button class="filter-btn" data-filter="reflorestamento">
+          Reflorestamento
+        </button>
+        <button class="filter-btn" data-filter="horta">
+          Hortas Comunitárias
+        </button>
+        <button class="filter-btn" data-filter="agroecologia">
+          Agroecologia
+        </button>
+        <button class="filter-btn" data-filter="empreendedorismo">
+          Empreendedorismo e Meio Ambiente
+        </button>
+        <button class="filter-btn" data-filter="cultura">
+          Cultura e Meio Ambiente
+        </button>
       </div>
 
-      <div class="project-info">
-  <h2>Equipe do Projeto</h2>
-  <p>
-    Este projeto foi desenvolvido por estudantes e educadores do Ensino
-    Médio da EEMTI Filgueiras Lima de Iguatu-CE, com o objetivo de mapear
-    e divulgar ações socioambientais no município.
-  </p>
-
-  <div class="team">
-    <div class="team-member">
-      <img src="imagens/lilithi.jpg" alt="Foto de Lilithi Vieira do Carmo" class="team-photo">
-      <h4>Lilithi Vieira do Carmo</h4>
-      <p class="team-role">Estudante Pesquisadora</p>
+      <div class="action-list" id="action-list">
+        <!-- conteúdo gerado dinamicamente -->
+      </div>
     </div>
 
-    <div class="team-member">
-      <img src="imagens/rafael.jpg" alt="Foto de Rafael Alencar Firmino" class="team-photo">
-      <h4>Rafael Alencar Firmino</h4>
-      <p class="team-role">Estudante Pesquisador</p>
-    </div>
+    <div class="project-info">
+      <h2>Equipe do Projeto</h2>
+      <p>
+        Este projeto foi desenvolvido por estudantes e educadores do Ensino
+        Médio da EEMTI Filgueiras Lima de Iguatu-CE, com o objetivo de mapear e
+        divulgar ações socioambientais no município.
+      </p>
 
-    <div class="team-member">
-      <img src="imagens/nacizo.jpg" alt="Foto de Prof. Me. Nacizo Cândido Neto" class="team-photo">
-      <h4>Prof. Me. Nacizo Cândido Neto</h4>
-      <p class="team-role">Orientador</p>
-    </div>
+      <div class="team">
+        <div class="team-member">
+          <img
+            src="imagens/lilithi.jpg"
+            alt="Foto de Lilithi Vieira do Carmo"
+            class="team-photo"
+          />
+          <h4>Lilithi Vieira do Carmo</h4>
+          <p class="team-role">Estudante Pesquisadora</p>
+        </div>
 
-     <div class="team-member">
-      <img src="imagens/guilherme.jpg" alt="Foto de Prof. Guilherme Moreira" class="team-photo">
-      <h4>Prof. Guilherme Moreira</h4>
-      <p class="team-role">Coorientador</p>
+        <div class="team-member">
+          <img
+            src="imagens/rafael.jpg"
+            alt="Foto de Rafael Alencar Firmino"
+            class="team-photo"
+          />
+          <h4>Rafael Alencar Firmino</h4>
+          <p class="team-role">Estudante Pesquisador</p>
+        </div>
+
+        <div class="team-member">
+          <img
+            src="imagens/nacizo.jpg"
+            alt="Foto de Prof. Me. Nacizo Cândido Neto"
+            class="team-photo"
+          />
+          <h4>Prof. Me. Nacizo Cândido Neto</h4>
+          <p class="team-role">Orientador</p>
+        </div>
+
+        <div class="team-member">
+          <img
+            src="imagens/guilherme.jpg"
+            alt="Foto de Prof. Guilherme Moreira"
+            class="team-photo"
+          />
+          <h4>Prof. Guilherme Moreira</h4>
+          <p class="team-role">Coorientador</p>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
     <footer>
       <div class="container">
@@ -213,7 +227,9 @@
               <option value="agroecologia">Agroecologia</option>
               <option value="cooperativa">Cooperativa</option>
               <!-- VALUE corrigido para "empreendedorismo" -->
-              <option value="empreendedorismo">Empreendedorismo e Meio Ambiente</option>
+              <option value="empreendedorismo">
+                Empreendedorismo e Meio Ambiente
+              </option>
               <option value="cultura">Cultura e Meio Ambiente</option>
             </select>
           </div>
@@ -241,7 +257,12 @@
             <label>Galeria de Imagens</label>
             <div class="gallery-container" id="gallery-container"></div>
 
-            <div class="gallery-add-btn" id="add-image-btn" role="button" aria-label="Adicionar imagens">
+            <div
+              class="gallery-add-btn"
+              id="add-image-btn"
+              role="button"
+              aria-label="Adicionar imagens"
+            >
               <i class="fas fa-plus"></i>
             </div>
 
@@ -266,7 +287,13 @@
 
     <!-- Galeria modal -->
     <div id="gallery-modal" class="gallery-modal" aria-hidden="true">
-      <span class="gallery-close" id="gallery-close" role="button" aria-label="Fechar galeria">&times;</span>
+      <span
+        class="gallery-close"
+        id="gallery-close"
+        role="button"
+        aria-label="Fechar galeria"
+        >&times;</span
+      >
       <div class="gallery-modal-content">
         <div class="gallery-slide active">
           <img
@@ -279,10 +306,18 @@
         </div>
 
         <div class="gallery-nav">
-          <button class="gallery-nav-btn" id="gallery-prev" aria-label="Imagem anterior">
+          <button
+            class="gallery-nav-btn"
+            id="gallery-prev"
+            aria-label="Imagem anterior"
+          >
             <i class="fas fa-chevron-left"></i>
           </button>
-          <button class="gallery-nav-btn" id="gallery-next" aria-label="Próxima imagem">
+          <button
+            class="gallery-nav-btn"
+            id="gallery-next"
+            aria-label="Próxima imagem"
+          >
             <i class="fas fa-chevron-right"></i>
           </button>
         </div>
@@ -319,7 +354,7 @@
         projectId: "cartografando-bem-comum",
         storageBucket: "cartografando-bem-comum.firebasestorage.app",
         messagingSenderId: "537637652168",
-        appId: "1:537637652168:web:6b00b5677df33d61df07fd"
+        appId: "1:537637652168:web:6b00b5677df33d61df07fd",
       };
 
       // Se quiser desativar o Firebase e usar apenas localStorage,
@@ -347,6 +382,3 @@
     <script src="script.js"></script>
   </body>
 </html>
-
-
-

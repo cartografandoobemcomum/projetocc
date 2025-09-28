@@ -180,7 +180,7 @@ h1 {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  height: 500px;
+  height: 600px;
 }
 
 /* Área que o Leaflet vai preencher */
@@ -225,8 +225,12 @@ h1 {
    BLOCO DE AÇÕES (LISTA + FILTROS)
    ========================= */
 .actions {
+  margin-left: 75px;
+  flex: 1;
+  max-width: 1200px;
+  min-width: 300px;
   background: white;
-  padding: 30px;
+  padding: 25px;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   margin-bottom: 30px;
