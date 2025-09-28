@@ -225,10 +225,6 @@ h1 {
    BLOCO DE AÇÕES (LISTA + FILTROS)
    ========================= */
 .actions {
-  margin-left: 75px;
-  flex: 1;
-  max-width: 1200px;
-  min-width: 300px;
   background: white;
   padding: 25px;
   border-radius: 10px;
@@ -761,4 +757,5 @@ footer {
     height: 40px;
   }
 }
+
 
