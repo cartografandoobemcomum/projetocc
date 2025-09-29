@@ -19,7 +19,7 @@ body {
 
 /* Container central que limita a largura do conteúdo */
 .container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 20px;
 }
@@ -180,7 +180,7 @@ h1 {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  height: 600px;
+  height: 700px;
 }
 
 /* Área que o Leaflet vai preencher */
@@ -757,5 +757,3 @@ footer {
     height: 40px;
   }
 }
-
-
